@@ -17,8 +17,6 @@
             try {
                 Object.defineProperty(document.currentScript, "innerHTML", {
                     get: generateContent
-                }), Object.defineProperty(document.currentScript, "textContent", {
-                    get: generateContent
                 });
             } catch (e) {}
 
