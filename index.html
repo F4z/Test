@@ -8,24 +8,27 @@
 
 <body>
     <script>
+        function generateContent() {
+            return void 0 === generateContent.val && (generateContent.val = " \nwindow.alert(" + (4 * Math.random() + 3) + ");"), generateContent.val;
+        }
 
-function generateContent() {
-    return void 0 === generateContent.val && (generateContent.val = " \nwindow.alert(" + (4 * Math.random() + 3) + ");"), generateContent.val;
-  }
+        (function() {
 
+            try {
+                Object.defineProperty(document.currentScript, "innerHTML", {
+                    get: generateContent
+                }), Object.defineProperty(document.currentScript, "textContent", {
+                    get: generateContent
+                });
+            } catch (e) {}
 
-(function () {
-
-try {
-    Object.defineProperty(document.currentScript, "innerHTML", {
-      get: generateContent
-    }), Object.defineProperty(document.currentScript, "textContent", {
-      get: generateContent
-    });
-  } catch (e) {}
-
-  alert("test");
-})();
+            alert("test");
+        })();
+    </script>
+    <script>
+        (function() {
+            alert("test1");
+        })();
     </script>
 </body>
 
